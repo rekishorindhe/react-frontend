@@ -5,6 +5,7 @@ import DashboardPage from '../features/dashboard/pages/DashboardPage';
 import Header from '../components/layout/Header/Header';
 import ProtectedRoute from './ProtectedRoute';
 import LoginPage from '../features/auth/pages/LoginPage';
+import LoginFormWithFormik from '../features/auth/components/LoginFormWithFormik';
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage isSignup={false} />} />
           <Route path="/signup" element={<LoginPage isSignup={true} />} />
+          <Route path="/formik" element={<LoginFormWithFormik  isSignup={true} />} />
           <Route
             path="/dashboard"
             element={
