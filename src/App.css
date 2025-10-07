@@ -1,0 +1,12 @@
+/* globals.css */
+:root {
+  --ant-primary-color: #3b82f6;
+  --ant-border-radius-base: 8px;
+  --ant-shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* Add more to match Shadcn's 12-step color scale */
+}
+
+.dark {
+  --ant-primary-color: #60a5fa; /* Lighter for dark mode */
+  --ant-color-bg-container: #0f172a;
+}
