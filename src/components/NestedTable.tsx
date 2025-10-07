@@ -1,27 +1,23 @@
-import React from "react";
 import {
-  Table,
-  Space,
-  Modal,
-  message,
-  Badge,
-  Tooltip,
-  Button,
-  Tag,
-  Spin,
-} from "antd";
-import {
-  EditOutlined,
   DeleteOutlined,
-  ExclamationCircleOutlined,
-  PlusSquareOutlined,
+  EditOutlined,
   MinusSquareOutlined,
+  PlusSquareOutlined,
 } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import type { TableColumnsType } from "antd";
+import {
+  Badge,
+  Button,
+  Popconfirm,
+  Space,
+  Table,
+  Tag,
+  Tooltip,
+  message
+} from "antd";
 import clsx from "clsx";
-
-const { confirm } = Modal;
+import React from "react";
 
 interface UserType {
   key: string;
@@ -56,20 +52,8 @@ const NestedTable: React.FC = () => {
     queryFn: fetchUsers,
   });
 
-  const showDeleteConfirm = (name: string) => {
-    confirm({
-      title: `Are you sure you want to delete ${name}?`,
-      icon: <ExclamationCircleOutlined />,
-      okText: "Yes, Delete",
-      okType: "danger",
-      cancelText: "No",
-      onOk() {
-        message.success(`${name} deleted successfully`);
-      },
-      onCancel() {
-        message.info("Delete cancelled");
-      },
-    });
+  const handleDelete = (name: string) => {
+    message.success(`${name} deleted successfully`);
   };
 
   const expandedRowRender = (record: UserType) => {
@@ -97,7 +81,7 @@ const NestedTable: React.FC = () => {
           "p-[2px] rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
         )}
       >
-        <div className="rounded-lg p-4 shadow-inner">
+        <div className="rounded-lg p-4 shadow-inner bg-black">
           <Table
             columns={expandColumns}
             dataSource={expandData}
@@ -150,13 +134,21 @@ const NestedTable: React.FC = () => {
               onClick={() => message.info(`Editing ${record.firstName}`)}
             />
           </Tooltip>
-          <Tooltip title="Delete User">
-            <Button
-              type="text"
-              icon={<DeleteOutlined className="text-red-500" />}
-              onClick={() => showDeleteConfirm(record.firstName)}
-            />
-          </Tooltip>
+
+          <Popconfirm
+            title={`Delete ${record.firstName}?`}
+            description="Are you sure you want to delete this user?"
+            okText="Yes"
+            cancelText="No"
+            onConfirm={() => handleDelete(record.firstName)}
+          >
+            <Tooltip title="Delete User">
+              <Button
+                type="text"
+                icon={<DeleteOutlined className="text-red-500" />}
+              />
+            </Tooltip>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -173,14 +165,16 @@ const NestedTable: React.FC = () => {
     ],
   };
 
+  if (isError)
+    return <p className="text-red-600 text-center mt-4">Failed to load users.</p>;
 
 
-  if (isError) return <p className="text-red-600">Failed to load users.</p>;
 
   return (
     <Table<UserType>
       rowSelection={rowSelection}
       columns={columns}
+      loading={isLoading}
       expandable={{
         expandedRowRender,
         expandIcon: ({ expanded, onExpand, record }) =>
@@ -198,10 +192,8 @@ const NestedTable: React.FC = () => {
       }}
       dataSource={data}
       pagination={{ pageSize: 10 }}
-      loading={isLoading}
       rowKey="key"
       scroll={{ x: 1000 }}
-      className="rounded-lg  shadow-sm"
     />
   );
 };

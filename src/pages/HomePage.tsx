@@ -26,6 +26,9 @@ const HomePage: React.FC = () => {
               <Button size="large" onClick={() => navigate('/signup')}>
                 Sign Up
               </Button>
+              <Button size="large" onClick={() => navigate('/dashboard')}>
+                Dashboard
+              </Button>
             </>
           )}
         </div>

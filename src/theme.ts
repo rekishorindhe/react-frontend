@@ -15,9 +15,9 @@ const darkTheme = {
     colorInfo: '#22d3ee',    // Cyan 400
 
     // Backgrounds: Dark, slate-like (Shadcn uses ~hsl(240 10% 3.9%))
-    colorBgContainer: 'transperent', // Slate-900 equivalent
-    colorBgElevated: 'transperent',  // Slightly lighter for cards, modals
-    colorBgLayout: 'transperent',    // Darker root background
+    colorBgContainer: 'black', // Slate-900 equivalent
+    colorBgElevated: 'black',  // Slightly lighter for cards, modals
+    colorBgLayout: 'black',    // Darker root background
 
     // Text: High contrast for readability
     colorText: '#f1f5f9',        // Slate-50, near-white
@@ -47,21 +47,21 @@ const darkTheme = {
       borderRadius: 6,
       paddingContentHorizontal: 16,
       defaultShadow: false, // Remove heavy AntD shadows
-      colorBgContainer: 'transperent', // Darker button bg
+      colorBgContainer: 'black', // Darker button bg
       colorText: '#fff',
       controlHeight: 36, // Slightly smaller, Shadcn-like
     },
     Input: {
       borderRadius: 6,
       paddingInline: 12,
-      colorBgContainer: 'transperent',
+      colorBgContainer: 'black',
       colorText: '#f1f5f9',
       colorBorder: '#475569', // Slate-600
     },
     Card: {
       borderRadius: 8,
       boxShadow: '0 1px 3px 0 rgba(255, 255, 255, 0.05)',
-      colorBgContainer: 'transperent',
+      colorBgContainer: 'black',
     },
     Modal: {
       borderRadius: 8,
