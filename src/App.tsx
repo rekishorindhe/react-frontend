@@ -1,16 +1,23 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import CustomForm from "./components/Form";
-import NestedTable from "./components/NestedTable";
-import CustomTable from "./components/Table";
+import AppRoutes from "./routes/AppRoutes";
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="m-3">
       {/* <Flex  align="center" vertical={true}> */}
-        <CustomTable />
+        {/* <CustomTable />
         <NestedTable />
-        <CustomForm/>
+      
+        <CustomForm/> */}
       {/* </Flex> */}
+       <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <AppRoutes />
+    </QueryClientProvider>
+  </BrowserRouter>
     </div>
   );
 }

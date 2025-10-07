@@ -47,21 +47,21 @@ const darkTheme = {
       borderRadius: 6,
       paddingContentHorizontal: 16,
       defaultShadow: false, // Remove heavy AntD shadows
-      colorBgContainer: '#1e293b', // Darker button bg
-      colorText: '#f1f5f9',
+      colorBgContainer: 'transperent', // Darker button bg
+      colorText: '#fff',
       controlHeight: 36, // Slightly smaller, Shadcn-like
     },
     Input: {
       borderRadius: 6,
       paddingInline: 12,
-      colorBgContainer: '#1e293b',
+      colorBgContainer: 'transperent',
       colorText: '#f1f5f9',
       colorBorder: '#475569', // Slate-600
     },
     Card: {
       borderRadius: 8,
       boxShadow: '0 1px 3px 0 rgba(255, 255, 255, 0.05)',
-      colorBgContainer: '#1e293b',
+      colorBgContainer: 'transperent',
     },
     Modal: {
       borderRadius: 8,
@@ -69,7 +69,7 @@ const darkTheme = {
       colorText: '#f1f5f9',
     },
     Table: {
-      colorBgContainer: 'transperent',
+      colorBgContainer: 'black',
       colorText: '#f1f5f9',
       borderRadius: 8,
     },
