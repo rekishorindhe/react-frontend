@@ -321,9 +321,9 @@ const handleNext = async () => {
           <Button
             type="primary"
             className="w-full"
-            onClick={handleNext}
+            onClick={() => isSignup ? handleNext() :  null}
           >
-            {currentStep < steps.length - 1 ? 'Next' : isSignup ? 'Sign Up' : 'Login'}
+            { isSignup &&currentStep < steps.length - 1 ? 'Next' : isSignup ? 'Sign Up' : 'Login'}
           </Button>
         </div>
       </Form.Item>
