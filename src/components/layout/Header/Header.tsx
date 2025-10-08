@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../../../context/AuthContext';
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../../context/AuthContext";
 
 const Header: React.FC = () => {
   const { isAuthenticated, logout } = useAuthStore();
@@ -7,7 +7,7 @@ const Header: React.FC = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -15,7 +15,7 @@ const Header: React.FC = () => {
       {/* Logo / Brand */}
       <h1
         className="text-2xl font-bold cursor-pointer text-gray-800 hover:text-gray-600"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
       >
         My App
       </h1>
@@ -24,7 +24,6 @@ const Header: React.FC = () => {
       <div className="flex gap-4">
         {isAuthenticated ? (
           <>
-         
             <span
               className="px-4 py-2 bg-red-600 text-white rounded-md cursor-pointer hover:bg-red-500 transition"
               onClick={handleLogout}
@@ -33,31 +32,36 @@ const Header: React.FC = () => {
             </span>
           </>
         ) : (
-
           <>
-             <span
+            <span
               className="px-4 py-2 bg-blue-600 text-white rounded-md cursor-pointer hover:bg-blue-500 transition"
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate("/dashboard")}
             >
               Dashboard
             </span>
             <span
               className="px-4 py-2 bg-blue-600 text-white rounded-md cursor-pointer hover:bg-blue-500 transition"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
             >
               Login
             </span>
             <span
               className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md cursor-pointer hover:bg-gray-300 transition"
-              onClick={() => navigate('/signup')}
+              onClick={() => navigate("/signup")}
             >
               Sign Up
             </span>
             <span
               className="px-4 py-2 bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-500 transition"
-              onClick={() => navigate('/formik')}
+              onClick={() => navigate("/formik")}
             >
-             SignUp Formik
+              SignUp Formik
+            </span>
+            <span
+              className="px-4 py-2 bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-500 transition"
+              onClick={() => navigate("/form")}
+            >
+              Form With Rich Textbox and upload
             </span>
           </>
         )}

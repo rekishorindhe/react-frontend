@@ -13,3 +13,37 @@
 html {
   color-scheme: dark;
 }
+
+.tiptap-container {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.tiptap-toolbar {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ProseMirror {
+  min-height: 200px;
+  padding: 8px;
+  /* background: white; */
+  border-radius: 4px;
+  outline: none;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #bfbfbf;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

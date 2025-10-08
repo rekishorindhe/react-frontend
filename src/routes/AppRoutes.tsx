@@ -6,6 +6,7 @@ import Header from '../components/layout/Header/Header';
 import ProtectedRoute from './ProtectedRoute';
 import LoginPage from '../features/auth/pages/LoginPage';
 import LoginFormWithFormik from '../features/auth/components/LoginFormWithFormik';
+import AdvancedForm from '../features/dashboard/pages/AdvancedForm';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,14 @@ const AppRoutes = () => {
             element={
               // <ProtectedRoute>
                 <DashboardPage />
+              // </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/form"
+            element={
+              // <ProtectedRoute>
+                <AdvancedForm />
               // </ProtectedRoute>
             }
           />
