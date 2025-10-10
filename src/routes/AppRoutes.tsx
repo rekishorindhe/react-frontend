@@ -1,12 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import NotFoundPage from '../pages/NotFoundPage';
-import DashboardPage from '../features/dashboard/pages/DashboardPage';
-import Header from '../components/layout/Header/Header';
-import ProtectedRoute from './ProtectedRoute';
-import LoginPage from '../features/auth/pages/LoginPage';
-import LoginFormWithFormik from '../features/auth/components/LoginFormWithFormik';
-import AdvancedForm from '../features/dashboard/pages/AdvancedForm';
+import { Route, Routes } from "react-router-dom";
+import Header from "../components/layout/Header/Header";
+import LoginFormWithFormik from "../features/auth/components/LoginFormWithFormik";
+import LoginPage from "../features/auth/pages/LoginPage";
+import AdvancedForm from "../features/dashboard/pages/AdvancedForm";
+import DashboardPage from "../features/dashboard/pages/DashboardPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import EmailTemplate from "../features/template-builder/EmailTemplate";
 
 const AppRoutes = () => {
   return (
@@ -14,15 +13,23 @@ const AppRoutes = () => {
       <Header />
       <main className="container mx-auto p-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <EmailTemplate/>
+            }
+          />
           <Route path="/login" element={<LoginPage isSignup={false} />} />
           <Route path="/signup" element={<LoginPage isSignup={true} />} />
-          <Route path="/formik" element={<LoginFormWithFormik  isSignup={true} />} />
+          <Route
+            path="/formik"
+            element={<LoginFormWithFormik isSignup={true} />}
+          />
           <Route
             path="/dashboard"
             element={
               // <ProtectedRoute>
-                <DashboardPage />
+              <DashboardPage />
               // </ProtectedRoute>
             }
           />
@@ -30,7 +37,7 @@ const AppRoutes = () => {
             path="/form"
             element={
               // <ProtectedRoute>
-                <AdvancedForm />
+              <AdvancedForm />
               // </ProtectedRoute>
             }
           />
